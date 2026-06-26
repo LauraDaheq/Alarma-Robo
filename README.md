@@ -1,51 +1,106 @@
-# Alarma-Robo 🚨
+# Anti-Theft Alarm System 🚨
 
-Sistema de alarma anti-robo basado en Arduino con sensor ultrasónico HC-SR04.
+An Arduino-based anti-theft alarm system that uses an **HC-SR04 ultrasonic sensor** to detect nearby objects and trigger an audible alarm.
 
-## Descripción del Proyecto
+## Project Description
 
-Este proyecto implementa un sistema de alarma que detecta objetos o personas que se acercan a una distancia inferior a 10 cm usando un sensor ultrasónico. Cuando se detecta movimiento cerca, activa un zumbador que suena durante 5 segundos.
+This project implements a simple anti-theft alarm using an **Arduino Uno** and an **HC-SR04 ultrasonic distance sensor**. The system continuously measures the distance to nearby objects. When an object or person is detected within **10 cm**, a buzzer is activated for **5 seconds** as an alarm.
 
-## Componentes Utilizados
+## Features
 
-- **Arduino UNO**: Microcontrolador principal
-- **Sensor Ultrasónico HC-SR04**: Sensor de distancia (DIST1 en el esquema)
-- **Zumbador (Buzzer)**: Emisor de sonido de alarma
-- **Protoboard**: Para las conexiones
-- **Jumpers**: Cables de conexión
-- **Resistencias y condensadores**: Según sea necesario
+- ✅ Real-time distance measurement
+- ✅ Motion and proximity detection
+- ✅ Automatic alarm activation
+- ✅ Audible buzzer alert (1000 Hz)
+- ✅ Adjustable detection threshold
+- ✅ Easy-to-build circuit
 
-## Pines Utilizados
+## Components Used
 
-| Componente | Pin Arduino |
-|-----------|------------|
-| TRIG (HC-SR04) | 7 |
-| ECHO (HC-SR04) | 6 |
+- **Arduino Uno** – Main microcontroller
+- **HC-SR04 Ultrasonic Sensor** – Distance measurement
+- **Piezo Buzzer** – Audible alarm
+- **Breadboard** – Circuit assembly
+- **Jumper Wires** – Electrical connections
+- **Resistors and Capacitors** – As required
+
+## Pin Configuration
+
+| Component | Arduino Pin |
+|-----------|-------------|
+| HC-SR04 TRIG | 7 |
+| HC-SR04 ECHO | 6 |
 | Buzzer | 12 |
 
-## Funcionamiento
+## How It Works
 
-1. El sensor ultrasónico emite un pulso de 5 microsegundos
-2. Mide el tiempo que tarda en recibir el eco
-3. Calcula la distancia usando la fórmula: `distancia = (duracion/2) * 0.0343 cm/μs`
-4. Si la distancia es menor a 10 cm, activa el buzzer a 1000 Hz durante 5 segundos
-5. Si la distancia es mayor, el buzzer permanece apagado
+1. The ultrasonic sensor sends a **5-microsecond trigger pulse**.
+2. It measures the time required for the echo to return.
+3. The Arduino calculates the distance using the following equation:
 
-## Esquema de Conexión
+```text
+Distance = (Echo Duration / 2) × 0.0343 cm/µs
+```
 
-Ver las imágenes incluidas en el repositorio para el diagrama de conexión detallado.
+4. If the measured distance is **less than 10 cm**, the Arduino activates the buzzer at **1000 Hz** for **5 seconds**.
+5. If the distance is greater than **10 cm**, the buzzer remains off.
 
-## Cómo Usar
+## Circuit Diagram
 
-1. Carga el código `ALARMAROBO.ino` en tu Arduino UNO
-2. Realiza las conexiones según el esquema proporcionado
-3. Alimenta el Arduino
-4. El sistema comenzará a detectar objetos automáticamente
-5. Cuando algo se acerque a menos de 10 cm, sonará la alarma
+Refer to the images included in this repository for the complete wiring diagram.
 
-## Notas Importantes
+## Getting Started
 
-- La velocidad del sonido utilizada es 343 m/s (a temperatura ambiente ~20°C)
-- El sensor mide distancias de aproximadamente 2 cm a 4 metros
-- El delay de 5 segundos durante la alarma puede ajustarse según necesidad
-- La frecuencia del zumbador (1000 Hz) puede modificarse en el código
+1. Upload the `ALARMAROBO.ino` sketch to your **Arduino Uno**.
+2. Assemble the circuit according to the provided schematic.
+3. Power the Arduino board.
+4. The system will automatically begin monitoring the surrounding area.
+5. When an object approaches within **10 cm**, the alarm will sound.
+
+## Technical Specifications
+
+- Detection Threshold: **10 cm**
+- Alarm Duration: **5 seconds**
+- Buzzer Frequency: **1000 Hz**
+- Speed of Sound Used: **343 m/s**
+- Distance Formula:
+
+```text
+Distance = (Echo Duration / 2) × 0.0343
+```
+
+## Applications
+
+- Home security systems
+- Door and window intrusion detection
+- Restricted area monitoring
+- Smart home automation
+- Educational embedded systems projects
+
+## Future Improvements
+
+- 📱 Add Bluetooth or Wi-Fi notifications
+- 🔴 Include LED indicators for alarm status
+- 🔑 Add keypad or RFID arming/disarming
+- 📲 Send alerts to a mobile application
+- 💾 Store alarm events in EEPROM or an SD card
+- 📡 Integrate with IoT platforms
+
+## Notes
+
+- The speed of sound is assumed to be **343 m/s** at approximately **20°C**.
+- The HC-SR04 sensor can measure distances from approximately **2 cm to 4 meters**.
+- The detection threshold and alarm duration can be easily modified in the Arduino code.
+- The buzzer frequency (**1000 Hz**) is fully configurable.
+
+## Technologies
+
+- Arduino Uno
+- Arduino IDE
+- Embedded Systems
+- C/C++
+- HC-SR04 Ultrasonic Sensor
+- Distance Measurement
+- Digital Electronics
+- Security Systems
+- Real-Time Monitoring
